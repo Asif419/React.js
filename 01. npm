@@ -1,0 +1,7 @@
+create a folder
+- npm init (to this folder directory)
+- npm install --bootstrap --save
+//npx create-react-app <app-name>
+- npx create-react-app tutorial
+//install dependencies from package.json file on a projec
+- npm install
