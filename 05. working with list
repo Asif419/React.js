@@ -1,1 +1,56 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+import './index.css'
+
+
+//creting object
+
+const books = [
+  {
+    bookName: "The lord of the ring",
+    authorName: "Asif Shahariar",
+    image: 'https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/rokimg_20141105_84521.gif'
+  },
+  {
+    bookName: "Bigganer mela",
+    authorName: "Who knows",
+    image: 'https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/rokimg_20141105_84521.gif'
+  },
+]
+
+
+//this function will call for run
+function Booklist() {
+  return (
+    <section className='booklist'>
+
+    {books.map((book) => {
+      return (
+        <Book book = {book}/>
+      )
+      
+    })}
+    </section>
+  );
+}
+
+const Book = (props) => {
+  const { authorName, image, bookName } = props.book;
+
+  return (
+    <article className='book'>
+      <img
+        //recieving values form parents dynamically
+        src={image}
+        alt="Book name" />
+      <h1>{bookName}</h1>
+      <h4 style={{ color: '#617d98', fontSize: '0.75rem' }} >
+        {authorName}
+      </h4>
+    </article>
+  )
+}
+
+
+ReactDOM.render(<Booklist />, document.getElementById('root'));
