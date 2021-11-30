@@ -149,3 +149,46 @@ const Book = (props) => {
   ----------
   
   
+ //onMouseOver event example
+ 
+ 
+ 
+ const Book = (props) => {
+  const { authorName, image, bookName } = props;
+
+  //attribute, eventHandler
+  //onClick, onMouseOver
+
+  const workThis = (e) => {
+    console.log(e);
+  }
+
+  const printAutrhorName = (name) => {
+    console.log(name)
+  }
+
+  //onMouseOver it will print book name
+  return (
+    <article className='book'
+      onMouseOver = { () => {
+        console.log(bookName);
+      }}
+    >
+      <img
+        //recieving values form parents dynamically
+        src={image}
+        alt="Book name" />
+      <h1 onClick={() => { console.log(bookName) }} >{bookName}</h1>
+      <h4
+        style={{ color: '#617d98', fontSize: '0.75rem' }}
+        onClick = { () => printAutrhorName (authorName) }
+      >
+        {authorName}
+      </h4>
+      <button type="button" onClick={workThis}>Magic</button>
+    </article>
+  )
+}
+
+-------------
+
