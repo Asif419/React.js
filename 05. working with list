@@ -117,3 +117,46 @@ const Book = (props) => {
 
 
 ReactDOM.render(<Booklist />, document.getElementById('root'));
+
+
+----------------
+
+
+//Spred operator
+
+
+function Booklist() {
+  return (
+    <section className='booklist'>
+
+    {books.map((book) => {
+      //sending book's object value separately
+      return (
+        <Book {...book} key = {book.id}/>
+      )
+      
+    })}
+    </section>
+  );
+}
+
+const Book = (props) => {
+//don't need to take object, it's come as a separated value
+  const { authorName, image, bookName } = props;
+
+  return (
+    <article className='book'>
+      <img
+        //recieving values form parents dynamically
+        src={image}
+        alt="Book name" />
+      <h1>{bookName}</h1>
+      <h4 style={{ color: '#617d98', fontSize: '0.75rem' }} >
+        {authorName}
+      </h4>
+    </article>
+  )
+}
+
+-------------
+
