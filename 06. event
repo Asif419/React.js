@@ -1,0 +1,151 @@
+//search react event on google
+
+//synthetic event
+
+//reference function example:
+
+const Book = (props) => {
+  const { authorName, image, bookName } = props;
+
+  //attribute, eventHandler
+  //onClick, onMouseOver
+  
+  //declaring a function
+  const workThis = () => {
+    alert('hello world');
+  }
+
+  return (
+    <article className='book'>
+      <img
+        //recieving values form parents dynamically
+        src={image}
+        alt="Book name" />
+      <h1>{bookName}</h1>
+      <h4 style={{ color: '#617d98', fontSize: '0.75rem' }} >
+        {authorName}
+      </h4>
+      //calling this function to work as onClick event
+      <button type = "button" onClick = {workThis}>Magic</button>
+    </article>
+  )
+}
+
+
+-------------
+
+//inline function example
+const Book = (props) => {
+  const { authorName, image, bookName } = props;
+
+  //attribute, eventHandler
+  //onClick, onMouseOver
+
+  const workThis = () => {
+    alert('hello world');
+  }
+
+  return (
+    <article className='book'>
+      <img
+        //recieving values form parents dynamically
+        src={image}
+        alt="Book name" />
+        {/* declering inline function */}
+      <h1 onClick = {() => { console.log(bookName)}} >{bookName}</h1>
+      <h4 style={{ color: '#617d98', fontSize: '0.75rem' }} >
+        {authorName}
+      </h4>
+      <button type = "button" onClick = {workThis}>Magic</button>
+    </article>
+  )
+}
+
+------------
+
+//more complex event
+//when we pass value on declaring a function system we should use () => (in line function)
+
+
+//automatically run without event
+
+const Book = (props) => {
+  const { authorName, image, bookName } = props;
+
+  //attribute, eventHandler
+  //onClick, onMouseOver
+
+  const workThis = () => {
+    alert('hello world');
+  }
+
+  const printAutrhorName = (name) => {
+    console.log(name)
+  }
+
+  return (
+    <article className='book'>
+      <img
+        //recieving values form parents dynamically
+        src={image}
+        alt="Book name" />
+      <h1 onClick={() => { console.log(bookName) }} >{bookName}</h1>
+      {/* author name will automatically print, without any work done */}
+      <h4
+        style={{ color: '#617d98', fontSize: '0.75rem' }}
+        onClick = {printAutrhorName (authorName) }
+      >
+        {authorName}
+      </h4>
+      <button type="button" onClick={workThis}>Magic</button>
+    </article>
+  )
+}
+
+
+
+//without will not work
+
+const Book = (props) => {
+  const { authorName, image, bookName } = props;
+
+  //attribute, eventHandler
+  //onClick, onMouseOver
+
+  const workThis = () => {
+    alert('hello world');
+  }
+
+  const printAutrhorName = (name) => {
+    console.log(name)
+  }
+
+  return (
+    <article className='book'>
+      <img
+        //recieving values form parents dynamically
+        src={image}
+        alt="Book name" />
+      <h1 onClick={() => { console.log(bookName) }} >{bookName}</h1>
+      <h4
+        style={{ color: '#617d98', fontSize: '0.75rem' }}
+        onClick = { () => printAutrhorName (authorName) }
+      >
+        {authorName}
+      </h4>
+      <button type="button" onClick={workThis}>Magic</button>
+    </article>
+  )
+}
+
+-------------
+
+//click event
+
+ const workThis = (e) => {
+    console.log(e);
+  }
+  
+  ----------
+  
+  
