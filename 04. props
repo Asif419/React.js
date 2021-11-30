@@ -140,3 +140,31 @@ onst Book = ({authorName, image, bookName}) => {
 }
 
 -------------
+
+//props children
+
+
+//this function will call for run
+function Booklist() {
+  return (
+    <section className='booklist'>
+
+      {/* //sending value form object */}
+      {/* //for sending children we need to write <Book> </Book>, inside those block we will write */}
+      <Book
+        bookName={book1.bookName}
+        authorName={book1.authorName}
+        image={book1.img}
+      >
+        <p>
+          Okay fine you will sell it
+        </p>
+      </Book>
+      <Book
+        bookName={book1.bookName}
+        authorName={book1.authorName}
+        image={book1.img} />
+    </section>
+  );
+}
+
