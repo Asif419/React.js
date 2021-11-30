@@ -54,3 +54,66 @@ const Book = (props) => {
 
 
 ReactDOM.render(<Booklist />, document.getElementById('root'));
+
+
+--------------
+
+//key props
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import './index.css'
+
+const books = [
+  {
+  //adding id
+    id: 1,
+    bookName: "The lord of the ring",
+    authorName: "Asif Shahariar",
+    image: 'https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/rokimg_20141105_84521.gif'
+  },
+  {
+    id: 2,
+    bookName: "Bigganer mela",
+    authorName: "Who knows",
+    image: 'https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/rokimg_20141105_84521.gif'
+  },
+]
+
+
+function Booklist() {
+  return (
+    <section className='booklist'>
+
+    {books.map((book) => {
+      //adding key
+      return (
+        <Book book = {book} key = {book.id}/>
+      )
+      
+    })}
+    </section>
+  );
+}
+
+const Book = (props) => {
+  const { authorName, image, bookName } = props.book;
+
+  return (
+    <article className='book'>
+      <img
+        src={image}
+        alt="Book name" />
+      <h1>{bookName}</h1>
+      <h4 style={{ color: '#617d98', fontSize: '0.75rem' }} >
+        {authorName}
+      </h4>
+    </article>
+  )
+}
+
+
+ReactDOM.render(<Booklist />, document.getElementById('root'));
