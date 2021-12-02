@@ -28,4 +28,70 @@ export default UseStateBasics;
 
 -------------
 
-//not complete
+//object inside useState
+
+import React, { useState } from 'react';
+
+const UseStateObject = () => {
+
+  const [practice, setPractice] = useState(
+    {
+      name: 'Asif Shahariar',
+      age: 28,
+      occupation: 'Software Engineer',
+    }
+  )
+  const clickHandaler = () => {
+    setPractice({...practice, occupation: 'Doctor'});
+  };
+  return (<>
+    {/* <h1> {practice.name} </h1>
+    <h1> {practice.age} </h1> */}
+    <h1>{practice.name}</h1>
+    <h1>{practice.age}</h1>
+    <h1>{practice.occupation}</h1>
+    <button className='btn' onClick = {() => { clickHandaler () }} >Change Occupaton</button>
+  </>
+  )
+};
+
+export default UseStateObject;
+
+------------
+
+//final useState example
+
+import React, { useState } from 'react';
+
+const UseStateCounter = () => {
+  const [value, setValue] = useState(0);
+  const complexIncrease = () => {
+    setTimeout(() => {
+      // setValue(value + 1);
+      for (let i = 0; i < 5; i++) {
+        setValue((prevState) => {
+          return prevState + 1;
+        });
+      }
+    });
+  };
+  return (
+    <>
+      <h1> {value}</h1>
+      <h4> Simple counter </h4>
+      <section>
+        <button className='btn' onClick={() => { setValue(value + 1) }}>Increase</button>
+        <button className='btn' onClick={() => { setValue(value - 1) }}>Decrese</button>
+        <button className='btn' onClick={() => { setValue(0) }}>Reset</button>
+      </section>
+      <h4 style={{ marginTop: '5rem' }}> Complex counter </h4>
+      <section>
+        <button className='btn' onClick={() => { complexIncrease() }}> Magic Increase</button>
+      </section>
+    </>
+  )
+};
+
+export default UseStateCounter;
+
+
